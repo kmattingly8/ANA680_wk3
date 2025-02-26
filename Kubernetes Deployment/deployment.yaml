@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wine-quality-predict
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wine-quality-predict
+  template:
+    metadata:
+      labels:
+        app: wine-quality-predict
+    spec:
+      containers:
+      - name: wine-quality-predict
+        image: kmattingly8/wine-quality-predict:v1
+        ports:
+        - containerPort: 5002
